@@ -4,7 +4,7 @@
 <%
 	Connection conn = null;
 	String driver="org.postgresql.Driver";
-	String url = "jdbc:postgresql://localhost:5432/postgres";
+	String url = "jdbc:postgresql://localhost:5432/commute";
 	Boolean connect = false;
 	try {
 		Class.forName(driver);
@@ -28,5 +28,6 @@
 	<%} else { %>
 	¿¬°á¾ÈµÊ
 	<%} %>
+<%=conn%>
 </body>
 </html>

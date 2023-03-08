@@ -6,9 +6,11 @@
 
 <%
 	try {
-		String url = "jdbc:postgresql://localhost:5432/postgres";
+		String driver = "org.postgresql.Driver";
+		String url = "jdbc:postgresql://localhost:5432/commute";
 		String User = "postgres";
 		String pw = "5212";
+		Class.forName(driver);
 		conn = DriverManager.getConnection(url,User,pw);
 	} catch (Exception e) {
 		session.invalidate();
