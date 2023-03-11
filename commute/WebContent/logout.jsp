@@ -4,6 +4,6 @@
     session.invalidate();
 %>
 <script>
-    alert("正常にログアウトされました。 さようなら.");
+    alert("正常にログアウトされました.");
     location.href="./index.jsp";
 </script>

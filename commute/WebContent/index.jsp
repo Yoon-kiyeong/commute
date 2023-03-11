@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ page import="java.util.*"%>
+
 <%
 SimpleDateFormat df = new SimpleDateFormat("hhmmss");
 java.util.Date d = new java.util.Date();
@@ -10,12 +11,12 @@ String ts = df.format(d);
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">s
+<meta charset="UTF-8">
 <link rel="stylesheet" href="./css/index.css?<%=ts%>">
 <script type="text/javascript">
 	function checkValue() {
 		inputForm = eval("document.loginInfo");
-		if (!inputForm.id.value) {
+		if (!inputForm.ID.value) {
 			alert("IDを入力してください");
 			inputForm.id.focus();
 			return false;
@@ -36,7 +37,7 @@ String ts = df.format(d);
 		</h2>
 		<form name="loginInfo" method="post" action="./login.jsp" onsubmit="return checkValue()">
 			<div class="user-box">
-				<input type="text" name="id" required=""> 
+				<input type="text" name="ID" required=""> 
 				<label>Username</label>
 			</div>
 			<div class="user-box">
