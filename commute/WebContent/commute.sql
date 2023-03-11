@@ -33,12 +33,15 @@ from commute
 select User_Id, password
 from Member where ID = 'admin' and Password='admin1234'
 
-insert into commute values(now(),current_time,null,2);
-
 insert into commute values (now(),null,2);
 insert into commute values ('2023-03-12 03:00:00', '2023-03-12:03:23:30',2);
 
-select to_char(commute, 'YYYY-MM-DD')as commute_date, to_char(commute, 'HH24:MI:SS') as commute_time, to_char(leave,'YYYY-MM-DD HH24:MI:SS') as leave ,User_Id
+select to_char(commute, 'YYYY-MM-DD')as commute_date, to_char(commute, 'HH24:MI:SS') as commute_time, to_char(leave,'YYYY-MM-DD 18:00:00') as leave ,User_Id
 from commute 
 
 delete from commute where user_id = '2';
+
+update commute set leave = now() where User_Id = '2' and leave is null;
+
+select now() as commute
+from commute
