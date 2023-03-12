@@ -1,47 +1,37 @@
+DROP TABLE commute;
+DROP TABLE Member;
+
 CREATE TABLE Member (
 	ID Varchar(30) Not Null, 
 	Password varchar(250) Not Null,
+	role integer,
 	User_Id SERIAL Primary Key
 );
-
-select *
-from Member
-
-drop table Member
-
-drop table commute
 
 CREATE TABLE commute (
 	commute timeStamp,
 	leave timeStamp,
-	User_Id integer REFERENCES Member (User_Id) NOT NULL
+	User_Id integer REFERENCES Member (User_Id) NOT NULL,
+	recordid SERIAL Primary Key
 );
 
-insert into Member values('Yoon', 'yoon1234');
-insert into Member values('admin','admin1234');
+insert into Member values('guest', 'guest',0);
+insert into Member values('yoshida', 'yoshida1234',0);
+insert into Member values('Yoon', 'yoon1234', 0);
+insert into Member values('admin','admin1234',1);
 
-drop table commute
+insert into commute values ('2023-02-07 08:05:45', '2023-02-07 19:12:51', 2);
+insert into commute values ('2023-02-08 08:07:25', '2023-02-08 15:44:21', 2);
+insert into commute values ('2023-02-09 08:04:55', '2023-02-09 21:12:21', 2);
+insert into commute values ('2023-02-10 09:17:44', '2023-02-10 18:05:21', 2);
+insert into commute values ('2023-02-11 08:15:21', '2023-02-11 18:12:52', 2);
+insert into commute values ('2023-02-12 09:19:41', '2023-02-12 19:46:21', 2);
+insert into commute values ('2023-02-13 08:34:54', '2023-02-13 22:32:38', 2);
 
-select *
-From Member
-
-insert into commute values(now(),'08:50:39','18:00:00'); 
-
-select *
-from commute
-
-select User_Id, password
-from Member where ID = 'admin' and Password='admin1234'
-
-insert into commute values (now(),null,2);
-insert into commute values ('2023-03-12 03:00:00', '2023-03-12:03:23:30',2);
-
-select to_char(commute, 'YYYY-MM-DD')as commute_date, to_char(commute, 'HH24:MI:SS') as commute_time, to_char(leave,'YYYY-MM-DD 18:00:00') as leave ,User_Id
-from commute 
-
-delete from commute where user_id = '2';
-
-update commute set leave = now() where User_Id = '2' and leave is null;
-
-select now() as commute
-from commute
+insert into commute values ('2023-02-10 09:05:45', '2023-02-10 19:12:51', 3);
+insert into commute values ('2023-02-11 08:57:25', '2023-02-12 03:44:21', 3);
+insert into commute values ('2023-02-13 09:04:55', '2023-02-14 00:12:21', 3);
+insert into commute values ('2023-02-16 07:07:44', '2023-02-17 08:05:21', 3);
+insert into commute values ('2023-02-21 08:15:21', '2023-02-21 18:12:52', 3);
+insert into commute values ('2023-02-22 05:19:41', '2023-02-22 19:46:21', 3);
+insert into commute values ('2023-02-23 06:34:54', '2023-02-24 01:32:38', 3);
